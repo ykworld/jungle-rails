@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <style>
+      table, td, th {
+          border: 1px solid black;
+      }
+
+      table {
+          border-collapse: collapse;
+          width: 100%;
+      }
+
+      th {
+          height: 50px;
+          text-align: left;
+      }
+
+      th, td {
+          padding: 15px;
+          text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Thank you! Your order has been placed!</h1>
+    <%  %>
+    <h2>
+      Purchase Details
+    </h2>>
+    <p>
+      <table>
+        <thead>
+          <th>name</th>
+          <th>qty</th>
+          <th>total</th>
+        </thead>
+        <tbody>
+        <% total = 0 %>
+        <% if items = LineItem.where(order_id: @order.id) %>
+          <% items.each do |item| %>
+            <% total += item.total_price_cents %>
+            <%= render 'item', item: item%>
+          <% end %>
+        <% end %>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th colspan="2">
+              TOTAL:
+            </th>
+            <th>
+              <%= total %>
+            </th>
+          </tr>
+        </tfoot>
+      </table>
+    </p>
+  </body>
+</html>

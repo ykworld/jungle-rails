@@ -5,9 +5,9 @@ class ReviewsController < ApplicationController
     @review.product_id = params[:product_id]
 
     if @review.save
-      redirect_to '/products/' + params[:product_id], notice: 'Review created!'
+      redirect_to product_path(id: params[:product_id]), notice: 'Review created!'
     else
-      redirect_to '/products/' + params[:product_id]
+      redirect_to :back
     end
   end
 

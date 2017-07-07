@@ -60,11 +60,7 @@
               <%= f.label :rating%>
             </div>
             <div class="col-md-10">
-              <%= f.select(:rating,  {}, { class: 'form-control' } ) do %>
-                <% [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]].each do |c| -%>
-                  <%= content_tag(:option, c.first, value: c.last) %>
-                <% end %>
-              <% end %>
+              <%= f.select :rating, options_for_select([1, 2, 3, 4, 5]), {}, class: "form-control" %>
             </div>
           </div>
           <div class="form-group">

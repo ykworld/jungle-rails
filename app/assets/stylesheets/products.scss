@@ -95,4 +95,24 @@ main section.products-show {
   }
 }
 
+main section.sessions {
+  
+  #loginbox {
+    margin-top: 30px;
+  }
+
+  .panel {    
+    background-color: transparent;
+  }
+
+  .panel-body {
+      padding-top: 30px;
+      background-color: rgba(2555,255,255,.3);
+
+      .input-group {
+        margin-bottom: 10px
+      }
+  }
+}
+
 

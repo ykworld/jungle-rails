@@ -132,5 +132,85 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+## USERS
+user1 = User.create!({
+  first_name: 'Dennis',
+  last_name: 'Kim',
+  email: 'test1@jungle.com',
+  password_digest: BCrypt::Password.create('1234')
+})
+
+user2 = User.create!({
+  first_name: 'Yonseung',
+  last_name: 'Kim',
+  email: 'test2@jungle.com',
+  password_digest: BCrypt::Password.create('1234')
+})
+
+user3 = User.create!({
+  first_name: 'Mr',
+  last_name: 'Lee',
+  email: 'test3@jungle.com',
+  password_digest: BCrypt::Password.create('1234')
+})
+
+user4 = User.create!({
+  first_name: 'Mr',
+  last_name: 'Park',
+  email: 'test4@jungle.com',
+  password_digest: BCrypt::Password.create('1234')
+})
+
+## REVIEWS
+pd1 = Product.find(1)
+pd2 = Product.find(2)
+
+pd1.reviews.create!({
+  user_id: user1.id,
+  description: Faker::Hipster.paragraph(1),
+  rating: 5
+})
+
+pd1.reviews.create!({
+  user_id: user2.id,
+  description: Faker::Hipster.paragraph(1),
+  rating: 2
+})
+
+pd1.reviews.create!({
+  user_id: user3.id,
+  description: Faker::Hipster.paragraph(1),
+  rating: 3
+})
+
+pd1.reviews.create!({
+  user_id: user4.id,
+  description: Faker::Hipster.paragraph(1),
+  rating: 1
+})
+
+pd2.reviews.create!({
+  user_id: user1.id,
+  description: Faker::Hipster.paragraph(1),
+  rating: 3
+})
+
+pd2.reviews.create!({
+  user_id: user2.id,
+  description: Faker::Hipster.paragraph(1),
+  rating: 3
+})
+
+pd2.reviews.create!({
+  user_id: user3.id,
+  description: Faker::Hipster.paragraph(1),
+  rating: 5
+})
+
+pd2.reviews.create!({
+  user_id: user4.id,
+  description: Faker::Hipster.paragraph(1),
+  rating: 4
+})
 
 puts "DONE!"

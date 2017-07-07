@@ -95,9 +95,10 @@ main section.products-show {
   }
 }
 
-main section.sessions {
+main section.sessions,
+main section.user-signup {
   
-  #loginbox {
+  .mainbox {
     margin-top: 30px;
   }
 

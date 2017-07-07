@@ -2,7 +2,7 @@
   <td>
     <%= review.description %>
   </td>
-  <td>
+  <td class="text-center">
     <%= review.rating %>
   </td>
   <td>
@@ -13,7 +13,7 @@
     <%= time_ago_in_words(review.created_at) %> ago
   </td>
   <td>
-      <% if current_user.id == review.user_id %>
+      <% if current_user && current_user.id == review.user_id %>
         <%= link_to fa_icon('trash'), product_review_path(product, review), class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
       <% end %>
   </td>

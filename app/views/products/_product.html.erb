@@ -26,9 +26,11 @@
     <%= humanized_money_with_symbol product.price %>
   </aside>
   <aside class="rating">
+    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
     <% 
       @reviews = product.reviews
      %>
     <%= @reviews.present?? (@reviews.sum(:rating).to_f / @reviews.count(:rating)) : 0  %>
+    / 5
   </aside>
 </article>

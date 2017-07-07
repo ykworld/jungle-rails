@@ -26,7 +26,9 @@
     <%= humanized_money_with_symbol product.price %>
   </aside>
   <aside class="rating">
-    <% @reviews = product.reviews %>
-    <%= @reviews.sum(:rating).to_f / @reviews.count(:rating) if @reviews.present? %>
+    <% 
+      @reviews = product.reviews
+     %>
+    <%= @reviews.present?? (@reviews.sum(:rating).to_f / @reviews.count(:rating)) : 0  %>
   </aside>
 </article>

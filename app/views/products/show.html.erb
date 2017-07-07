@@ -34,16 +34,18 @@
             <th>Rating</th>
             <th>Name</th>
             <th>Date</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
           <% @reviews.each do |review| %>
-            <%= render 'review', review: review%>
+            <%= render 'review', review: review, product: @product %>
           <% end %>
         </tbody>
       </table>
     </div>
-
+    <!-- Only logged-in user can see the review form -->
+    <%if logged_in? %>
     <div class="row">
       <div class="col-md-12">
         <%= form_for(:review, url: "/products/#{@product.id}/reviews", :html => {class: "form-horizontal", role: "form"}) do |f| %>
@@ -71,6 +73,7 @@
         <% end %>
       </div>
     </div>
+    <% end %>
   </article>
 
 </section>

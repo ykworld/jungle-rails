@@ -25,7 +25,7 @@
         </dl>
       </div>
     </div>
-    <% @reviews = @product.reviews%>
+    <% @reviews = @product.reviews.order(created_at: :desc)%>
     <div class="row">
       <table class="table table-bordered">
         <thead></thead>
@@ -60,7 +60,11 @@
               <%= f.label :rating%>
             </div>
             <div class="col-md-10">
-              <%= select_tag(:rating_id, options_for_select([[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]]), class: "form-control")%>
+              <%= f.select(:rating,  {}, { class: 'form-control' } ) do %>
+                <% [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]].each do |c| -%>
+                  <%= content_tag(:option, c.first, value: c.last) %>
+                <% end %>
+              <% end %>
             </div>
           </div>
           <div class="form-group">

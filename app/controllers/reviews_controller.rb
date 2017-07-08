@@ -20,6 +20,7 @@ class ReviewsController < ApplicationController
     redirect_to product_path(id: params[:product_id]), notice: 'Review deleted!'
   end
 
+  private 
   def review_params
     params.require(:review).permit(
       :description,
